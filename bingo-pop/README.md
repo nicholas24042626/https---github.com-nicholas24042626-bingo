@@ -2,7 +2,7 @@
 
 A responsive 75-ball Bingo machine built with React, Vite, Tailwind CSS, Framer Motion, and Lucide icons.
 
-The machine includes animated cage details, one-time ball draws, a roll callout, and an optional calming ambient music pad. Audio starts after the first roll or when the sound control is enabled, respecting browser autoplay policies.
+The machine includes animated cage details, one-time ball draws, a roll callout, and an optional mellow jazz-style ambient pad with rotating seventh chords. Audio starts after the first roll or when the sound control is enabled, respecting browser autoplay policies.
 
 ## Run locally
 
