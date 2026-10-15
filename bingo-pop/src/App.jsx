@@ -85,6 +85,7 @@ export default function App() {
     master.gain.setValueAtTime(0.0001, ctx.currentTime);
     master.gain.exponentialRampToValueAtTime(0.045, ctx.currentTime + 2.5);
     master.connect(ctx.destination);
+    ambientRef.current.push(master);
     const jazzChords = [
       [261.63, 329.63, 392, 493.88],
       [220, 261.63, 329.63, 415.3],
@@ -112,7 +113,6 @@ export default function App() {
       jazzTimerRef.current = window.setTimeout(playNextChord, 3600);
     };
     playNextChord();
-    ambientRef.current.push(master);
   }
 
   function stopAmbient() {
@@ -121,7 +121,7 @@ export default function App() {
     window.clearTimeout(jazzTimerRef.current);
     jazzTimerRef.current = null;
     const ctx = audioRef.current;
-    const master = nodes[nodes.length - 1];
+    const master = nodes[0];
     if (ctx && master?.gain) {
       master.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.5);
       window.setTimeout(() => nodes.forEach(node => node.stop?.()), 550);
@@ -234,7 +234,7 @@ export default function App() {
             <Card className="min-h-[300px] overflow-hidden rounded-[2rem] bg-gradient-to-br from-slate-900 via-slate-900 to-indigo-950 text-white shadow-[0_20px_60px_rgba(15,23,42,.16)]">
               <div className="flex min-h-[300px] flex-col items-center justify-center p-7 text-center">
                 <p className="mb-5 text-xs font-black uppercase tracking-[.25em] text-indigo-300">Latest ball</p>
-                <AnimatePresence mode="wait">{current ? <motion.div key={current} initial={{ y:-120, scale:.3, rotate:-180, opacity:0 }} animate={{ y:0, scale:1, rotate:0, opacity:1 }} exit={{ scale:.5, opacity:0 }} transition={{ type:"spring", stiffness:180, damping:14 }}><BingoBall number={current}/></motion.div> : <motion.div key="empty" initial={{ opacity:0 }} animate={{ opacity:1 }} className="grid h-40 w-40 place-items-center rounded-full border-2 border-dashed border-slate-600 text-sm font-semibold text-slate-400">{rolling ? "Here it comes..." : "Press roll to begin"}</motion.div>}</AnimatePresence>
+                <AnimatePresence mode="wait">{current ? <motion.div key={current} initial={{ scale:.92, opacity:0 }} animate={{ scale:1, opacity:1 }} exit={{ scale:.96, opacity:0 }} transition={{ duration:.25, ease:"easeOut" }}><BingoBall number={current}/></motion.div> : <motion.div key="empty" initial={{ opacity:0 }} animate={{ opacity:1 }} className="grid h-40 w-40 place-items-center rounded-full border-2 border-dashed border-slate-600 text-sm font-semibold text-slate-400">{rolling ? "Here it comes..." : "Press roll to begin"}</motion.div>}</AnimatePresence>
                 {current && <p className="mt-5 text-lg font-black">{getLetter(current)} - {current}</p>}
               </div>
             </Card>
