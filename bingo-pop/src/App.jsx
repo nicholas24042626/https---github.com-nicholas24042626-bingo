@@ -46,6 +46,7 @@ function MiniFloatingBall({ number, index, rolling }) {
       style={{ left: `${left}%`, top: `${top}%` }}
       animate={rolling ? { x: [0,22,-18,9,0], y: [0,-24,19,-10,0], rotate: [0,180,300,360] } : { y: [0,-5,0] }}
       transition={rolling ? { duration: .75, repeat: Infinity, ease: "easeInOut", delay: index * .03 } : { duration: 2.2 + index * .08, repeat: Infinity, ease: "easeInOut" }}
+    >
       <span className="absolute left-[17%] top-[12%] h-[25%] w-[25%] rounded-full bg-white/65 blur-[1px]" />
       <span className="relative grid h-[68%] w-[68%] place-items-center rounded-full border border-white/75 bg-white/90 text-slate-800 shadow-inner">{number}</span>
     </motion.div>
