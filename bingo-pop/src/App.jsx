@@ -215,10 +215,11 @@ export default function App() {
                 <AnimatePresence>
                   {current && <motion.div
                     key={`outlet-${current}`}
-                    className="absolute bottom-[-50px] left-1/2 z-20 -translate-x-1/2"
-                    initial={{ y: -110, scale: .55, opacity: 0, rotate: -100 }}
-                    animate={{ y: 0, scale: 1, opacity: 1, rotate: 0 }}
-                    transition={{ type: "spring", stiffness: 210, damping: 16 }}
+                    className="absolute bottom-[-3px] left-1/2 z-20 -translate-x-1/2"
+                    initial={{ scale: .72, opacity: 0 }}
+                    animate={{ scale: .72, opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: .2, ease: "easeOut" }}
                   >
                     <BingoBall number={current} size="small" />
                   </motion.div>}
