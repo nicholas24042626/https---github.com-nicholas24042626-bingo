@@ -187,21 +187,27 @@ export default function App() {
           <Card className="overflow-hidden rounded-[2rem] bg-white shadow-[0_20px_60px_rgba(15,23,42,.09)]">
             <div className="flex min-h-[610px] flex-col items-center p-5 sm:p-8">
               <div className="mb-5 flex w-full items-center justify-between">
-                <div><p className="text-xs font-black uppercase tracking-[.22em] text-indigo-600">Bingo machine</p><h2 className="mt-1 text-xl font-bold">Ready for the next number?</h2></div>
+                <div><p className="text-xs font-black uppercase tracking-[.22em] text-red-600">Gumball bingo machine</p><h2 className="mt-1 text-xl font-bold">Ready for the next number?</h2></div>
                 <div className="rounded-full bg-slate-100 px-3 py-1.5 text-xs font-bold text-slate-600">{remaining.length} left</div>
               </div>
               <div className="relative mt-1 h-[390px] w-[300px] sm:h-[400px] sm:w-[350px]">
-                <motion.div animate={rolling ? { rotate: [0,2,-2,1,0] } : {}} transition={{ repeat: Infinity, duration: .35 }} className="absolute left-1/2 top-0 h-[285px] w-[285px] -translate-x-1/2 overflow-hidden rounded-full border-[10px] border-white bg-gradient-to-b from-indigo-50/90 to-indigo-100/70 shadow-[inset_0_-25px_50px_rgba(79,70,229,.14),0_24px_45px_rgba(15,23,42,.16)] sm:h-[320px] sm:w-[320px]">
-                  <div className="absolute inset-0 rounded-full border border-indigo-200/50" />
-                  <div className="absolute left-[17%] top-[9%] h-[36%] w-[20%] rotate-[35deg] rounded-full bg-white/70 blur-lg" />
+                <motion.div animate={rolling ? { rotate: [0,2,-2,1,0] } : {}} transition={{ repeat: Infinity, duration: .35 }} className="absolute left-1/2 top-0 h-[285px] w-[285px] -translate-x-1/2 overflow-hidden rounded-[48%] border-[10px] border-white/90 bg-gradient-to-b from-sky-50/90 via-indigo-50/75 to-indigo-100/90 shadow-[inset_0_-25px_50px_rgba(79,70,229,.14),0_24px_45px_rgba(15,23,42,.16)] sm:h-[320px] sm:w-[320px]">
+                  <div className="absolute inset-0 rounded-[48%] border-2 border-sky-200/70" />
+                  <div className="absolute left-[17%] top-[9%] h-[46%] w-[17%] rotate-[35deg] rounded-full bg-white/75 blur-lg" />
+                  <div className="absolute inset-x-[7%] top-0 h-5 rounded-full bg-white/70 blur-[2px]" />
                   {displayBalls.map((n, i) => <MiniFloatingBall key={`${n}-${i}`} number={n} index={i} rolling={rolling} />)}
-                  <div className="pointer-events-none absolute inset-[7%] rounded-full border border-slate-400/40">
-                    {Array.from({ length: 10 }, (_, i) => <span key={i} className="absolute left-1/2 top-1/2 h-[52%] w-1 -translate-x-1/2 -translate-y-1/2 rounded-full bg-slate-500/25" style={{ transform: `translate(-50%, -50%) rotate(${i * 18}deg)` }} />)}
-                    <span className="absolute left-1/2 top-1/2 h-5 w-5 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-slate-500/40 bg-slate-200/70 shadow-inner" />
-                  </div>
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-indigo-300/35 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 h-14 bg-gradient-to-t from-indigo-300/30 to-transparent" />
                 </motion.div>
-                <div className="absolute bottom-0 left-1/2 h-20 w-52 -translate-x-1/2 rounded-t-[2.5rem] rounded-b-2xl bg-gradient-to-b from-slate-700 to-slate-950 shadow-xl"><div className="mx-auto mt-3 h-4 w-28 rounded-full bg-slate-500/70 shadow-inner" /><div className="mx-auto mt-3 flex w-32 justify-center gap-2"><span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]"/><span className="h-2 w-2 rounded-full bg-indigo-400 shadow-[0_0_8px_#818cf8]"/><span className="h-2 w-2 rounded-full bg-pink-400 shadow-[0_0_8px_#f472b6]"/></div></div>
+                <div className="absolute bottom-0 left-1/2 h-24 w-56 -translate-x-1/2 rounded-t-[2.5rem] rounded-b-2xl border-t-4 border-red-300 bg-gradient-to-b from-red-500 via-red-600 to-red-900 shadow-[inset_0_8px_12px_rgba(255,255,255,.25),0_18px_25px_rgba(15,23,42,.25)]">
+                  <div className="mx-auto mt-3 h-4 w-28 rounded-full bg-red-950/60 shadow-inner" />
+                  <div className="absolute left-5 top-10 h-8 w-10 rounded-md border-2 border-yellow-300/80 bg-slate-900 shadow-inner">
+                    <span className="mx-auto mt-2 block h-1 w-5 rounded-full bg-yellow-300" />
+                  </div>
+                  <div className="absolute right-5 top-9 h-11 w-11 rounded-full border-4 border-yellow-300 bg-gradient-to-br from-yellow-100 to-amber-500 shadow-[inset_-3px_-4px_5px_rgba(120,53,15,.35),0_3px_5px_rgba(0,0,0,.25)]">
+                    <span className="absolute left-1/2 top-1/2 h-1 w-5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-amber-800" />
+                  </div>
+                </div>
                 <div className="absolute bottom-[-12px] left-1/2 z-10 h-9 w-20 -translate-x-1/2 rounded-b-2xl border-4 border-slate-700 bg-slate-900 shadow-lg">
                   <div className="absolute left-1/2 top-1/2 h-3 w-12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-black/60" />
                 </div>
@@ -239,7 +245,7 @@ export default function App() {
             </Card>
           </div>
         </div>
-        <footer className="pt-7 text-center text-xs font-medium text-slate-400">75-ball Bingo · Every number is drawn only once</footer>
+        <footer className="pt-7 text-center text-xs font-medium text-slate-400">75-ball gumball bingo · Every number is drawn only once</footer>
       </div>
     </main>
   );
