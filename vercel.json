@@ -1,6 +1,0 @@
-{
-  "buildCommand": "npm run build --prefix bingo-pop",
-  "outputDirectory": "bingo-pop/dist",
-  "installCommand": "npm install --prefix bingo-pop",
-  "framework": "vite"
-}

@@ -20,8 +20,9 @@ npm run build
 ## Deploy with Vercel
 
 1. Push this project to a GitHub repository.
-2. Import the repository in Vercel. If importing the parent repository, the included `vercel.json` builds the `bingo-pop` app directory automatically.
-3. Alternatively, set Vercel's **Root Directory** to `bingo-pop`, then use `npm run build` with output directory `dist`.
-4. Click Deploy.
+2. Import the repository in Vercel.
+3. Set Vercel's **Root Directory** to `bingo-pop`.
+4. Use `npm run build` as the build command and `dist` as the output directory.
+5. Click Deploy.
 
 No environment variables are required.
