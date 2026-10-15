@@ -192,14 +192,14 @@ export default function App() {
                 <div className="rounded-full bg-slate-100 px-3 py-1.5 text-xs font-bold text-slate-600">{remaining.length} left</div>
               </div>
               <div className="relative mt-1 h-[390px] w-[300px] sm:h-[400px] sm:w-[350px]">
-                <motion.div animate={rolling ? { rotate: [0,2,-2,1,0] } : {}} transition={{ repeat: Infinity, duration: .35 }} className="absolute left-1/2 top-0 h-[285px] w-[285px] -translate-x-1/2 overflow-hidden rounded-[48%] border-[10px] border-white/90 bg-gradient-to-b from-sky-50/90 via-indigo-50/75 to-indigo-100/90 shadow-[inset_0_-25px_50px_rgba(79,70,229,.14),0_24px_45px_rgba(15,23,42,.16)] sm:h-[320px] sm:w-[320px]">
+                <div className="absolute left-1/2 top-0 h-[285px] w-[285px] -translate-x-1/2 overflow-hidden rounded-[48%] border-[10px] border-white/90 bg-gradient-to-b from-sky-50/90 via-indigo-50/75 to-indigo-100/90 shadow-[inset_0_-25px_50px_rgba(79,70,229,.14),0_24px_45px_rgba(15,23,42,.16)] sm:h-[320px] sm:w-[320px]">
                   <div className="absolute inset-0 rounded-[48%] border-2 border-sky-200/70" />
                   <div className="absolute left-[17%] top-[9%] h-[46%] w-[17%] rotate-[35deg] rounded-full bg-white/75 blur-lg" />
                   <div className="absolute inset-x-[7%] top-0 h-5 rounded-full bg-white/70 blur-[2px]" />
                   {displayBalls.map((n, i) => <MiniFloatingBall key={`${n}-${i}`} number={n} index={i} rolling={rolling} />)}
                   <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-indigo-300/35 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 h-14 bg-gradient-to-t from-indigo-300/30 to-transparent" />
-                </motion.div>
+                </div>
                 <div className="absolute bottom-0 left-1/2 h-24 w-56 -translate-x-1/2 rounded-t-[2.5rem] rounded-b-2xl border-t-4 border-red-300 bg-gradient-to-b from-red-500 via-red-600 to-red-900 shadow-[inset_0_8px_12px_rgba(255,255,255,.25),0_18px_25px_rgba(15,23,42,.25)]">
                   <div className="mx-auto mt-3 h-4 w-28 rounded-full bg-red-950/60 shadow-inner" />
                   <div className="absolute left-5 top-10 h-8 w-10 rounded-md border-2 border-yellow-300/80 bg-slate-900 shadow-inner">
